@@ -1,0 +1,18 @@
+{
+    "name": "agile-abduction/a54conv",
+    "description": "minimal code converter tool, var_export to PHP 5.4 short array format",
+    "version": "0.0.1",
+    "minimum-stability": "beta",
+    "license": "wtfpl",
+    "authors": [
+        {
+            "name": "tamas",
+            "email": "agile.abduction@github.com"
+        }
+    ],
+    "autoload": {
+        "classmap": [
+            "src/"
+        ]
+    }
+}
