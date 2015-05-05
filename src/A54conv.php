@@ -38,7 +38,14 @@ class A54conv {
 		],
 	];
 
+	/**
+	 * @var string indent is raised after a line matches this pattern
+	 */
 	protected $_indentRaisePattern = '/\[$/';
+
+	/**
+	 * @var string indent is lowered on the line that matches this
+	 */
 	protected $_indentLowerPattern = '/\](,|;)$/';
 
 	/**
@@ -48,12 +55,29 @@ class A54conv {
 	public function convert($in) {
 
 		// make sure we have a non-empty string to begin with
-		if (is_array($in) && !empty($in)) {
-			$in = var_export($in, true);
-		}
 		if (empty($in)) {
 			return null;
 		}
+
+		return $this->adjustTextIndent(
+			$this->convertArrayToShort($in)
+		);
+
+	}
+
+	/**
+	 * @param $arr
+	 * @return null|string
+	 */
+	public function dumpArray($arr) {
+		return $this->convert(var_export($arr, true));
+	}
+
+	/**
+	 * @param string $in
+	 * @return string
+	 */
+	public function convertArrayToShort($in) {
 
 		$replaced = $in;
 
