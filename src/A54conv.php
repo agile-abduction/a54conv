@@ -16,30 +16,30 @@ class A54conv {
 		],
 		// to replace actual array(
 		[
-			'pattern' => '/array\(/',
+			'pattern' => '/array \(/',
 			'replacement' => '[',
 		],
 		// to replace => array( occurances (now converted to => [ something), get rid of one newline
 		[
-			'pattern' => '/ =>\n(\t+)\[/',
+			'pattern' => '/ =>\n([\t ]+)\[/',
 			'replacement' => " => [",
 			// I will implement spaces suport later
 			//'replace' => '/ =>\n((    |\t)+)\[\n((    |\t)+)/',
 		],
 		// to replace closing brackets
 		[
-			'pattern' => "/\n\t+\),/",
+			'pattern' => "/\n[\t ]+\),/",
 			'replacement' => "\n],",
 		],
 		// to replace closing bracket
 		[
-			'pattern' => "/\)\n(\t+);/",
-			'replacement' => "];",
+			'pattern' => "/\)(\n([\t ]+))?/",
+			'replacement' => "]",
 		],
 	];
 
 	protected $_indentRaisePattern = '/\[$/';
-	protected $_indentLowerPattern = '/\](,|;)$/';
+	protected $_indentLowerPattern = '/\](,|;)?$/';
 
 	/**
 	 * @param string|array $in
