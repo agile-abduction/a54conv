@@ -10,6 +10,10 @@
             "email": "agile.abduction@github.com"
         }
     ],
+    "require": {
+        "silex/silex": "1.2.*",
+        "twig/twig": "2.0.*@dev"
+    },
     "autoload": {
         "classmap": [
             "src/"
